@@ -1,0 +1,80 @@
+@mixin data-table-header-font {
+  font-weight: 400;
+  font-style: normal;
+  color: lighten(#000000, 46%);
+  padding: 1.6rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+body {
+  @include data-table-header-font();
+}
+
+.data-table {
+
+  $base-font: 'RobotoDraft', 'Roboto', 'Helvetica Neue, Helvetica, Arial', sans-serif;
+  $base-border-color: gainsboro !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-gray: #333 !default;
+  $light-gray: #DDD !default;
+  $medium-screen: em(640) !default;
+  $large-screen: em(860) !default;
+  $table-header-font-color: lighten(#000000, 46%);
+  $table-body-font-color: lighten(#000000, 13%);
+  $table-border-color: $base-border-color;
+  $table-border: 1px solid $table-border-color;
+  $table-background: #ffffff; 
+  $table-hover-background: #EEEEEE;
+  $table-selected-background: #F5F5F5;
+  $table-padding: 1.6rem;
+
+  border-left: 0px;
+  border-spacing: 0;
+  border: $table-border;
+  width: 50%;
+  font-family: $base-font;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+
+  tbody {
+    background-color: $table-background;
+    color: $table-body-font-color;
+
+    tr:hover > td, tr:hover > th {
+      background-color: $table-hover-background;
+    }
+  }
+
+  thead {
+    th {
+      @include data-table-header-font();
+    }
+  }
+
+  tbody {
+    background-color: $table-background;
+    td {
+      border-bottom: 0px;
+      padding: $table-padding;
+
+      button {
+        display: inline-block;
+        font-size: 0.7em;
+        line-height: $base-line-height;
+        margin-bottom: 0.3em;
+        margin-right: 0.5em;
+        outline: none;
+        padding: 0.3em 1em;
+        width: 100%;
+
+        @include media($medium-screen) {
+          margin-bottom: 0;
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
